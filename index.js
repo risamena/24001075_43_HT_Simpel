@@ -8,17 +8,7 @@ app.use(express.json());
 app.use(express.urlencoded());
 
 // config postgree: baiknya di file lain
-const pg = require('pg');
-const client = new pg.Client({
-    host: 'satao.db.elephantsql.com',
-    port: 5432,
-    database: 'lxiumezd',
-    user: 'lxiumezd',
-    password: 'hHKxaeHHlZd8z0j_HCru83NzthBQls4A'
-});
-client.connect((error) => {
-    console.log("Cannot connect to database: ", error);
-});
+
 
 // morgan
 // internal server error handler
