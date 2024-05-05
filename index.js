@@ -1,11 +1,11 @@
 const express = require('express');
 const app = express();
-const morgan = require('morgan');
-app.use(morgan('dev'));
-const PORT = 4646
+const PORT = process.env.PORT || 4646;
 
 app.use(express.json());
 app.use(express.urlencoded());
+app.set('view engine', 'ejs');
+app.use(express.static('public'));
 
 // config postgree: baiknya di file lain
 const pg = require('pg');
@@ -19,25 +19,23 @@ const client = new pg.Client({
 client.connect((error) => {
     if (error) {console.log('Error: ', error);} else {console.log('connected to database');};
 });
-// client.end();
 
 // morgan
-// internal server error handler
+const morgan = require('morgan');
+app.use(morgan('dev'));
+// internal server error handler 500
 app.use( function(err, req, res, next){
-    console.log(err);
-    res.status(500).json({
-        status: 'fail',
-        errors: err.message
-    });
-
+    // console.log(err);
+    res.status(500).render('500')
 });
 // 404 handler
 app.use((req, res, next) => {
-    res.status(404).json({
-        status: 'fail',
-        errors: 'Maaf, halaman tidak ditemukan!'
-    });
+    // res.status(404).json({
+    //     status: 'fail',
+    //     errors: 'Maaf, halaman tidak ditemukan!'
+    // });
+    res.status(404).render('404');
 });
 
 // server
-app.listen(PORT, () => { console.log(`Server is running at Port ${PORT}`);});
+app.listen(PORT, () => { console.log(`Server is running at Port http://localhost:${PORT}`);});
