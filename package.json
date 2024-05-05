@@ -4,7 +4,7 @@
   "description": "Project GOLD Binar",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon"
+    "start": "dotenv-load nodemon"
   },
   "repository": {
     "type": "git",
@@ -18,9 +18,11 @@
   "homepage": "https://github.com/risamena/24001075_43_HT_Simpel#readme",
   "dependencies": {
     "express": "^4.19.1",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "pg": "^8.11.5"
   },
   "devDependencies": {
+    "dotenv-load": "^3.0.0",
     "nodemon": "^3.1.0"
   }
 }
