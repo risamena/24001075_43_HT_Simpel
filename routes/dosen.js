@@ -7,13 +7,22 @@ router.use(function timelog(req, res, next){
     next();
 });
 
+// Landing Page
 router.get('/', (req, res)=>{
     res.render('home/index');
 });
 
 // API - Read
 router.get('/data-dosen', async (req, res)=>{
-
+    try {
+        const rawData = await client.query(`SELECT * FROM dosen`);
+        const dataDosen = rawData.rows;
+        res.status(200).json({data: dataDosen}); //ganti ke VIEW
+    } catch (error) {
+        console.log(error);
+        await client.query('ROLLBACK');
+        res.status(500).render('500');
+    }
 });
 
 // API - Create - [Pindahkan sesuai MVC]
@@ -40,5 +49,9 @@ router.post('/data-dosen', async (req, res)=>{
         res.status(500).render('500');
     }   
 });
+
+// update
+
+// delete
 
 module.exports = router;
