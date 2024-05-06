@@ -1,2 +1,4 @@
 install express, nodemon, morgan
-npm install pg
+npm install pg, ejs
+
+morgan handler
