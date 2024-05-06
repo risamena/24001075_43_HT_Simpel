@@ -8,8 +8,19 @@ router.use(function timelog(req, res, next){
 });
 
 // Landing Page
-router.get('/', (req, res)=>{
-    res.render('home/index');
+// router.get('/', DosenController.addNewDosen);
+router.get('/', async(req, res)=>{
+    try {
+        await client.query('BEGIN');
+        const rawData = await client.query(`SELECT * FROM dosen`);
+        const countDataDosen = rawData.rowCount;
+        await client.query('COMMIT');
+        res.render('home/index', {countDataDosen});
+    } catch (error) {
+        console.log(error);
+        await client.query('ROLLBACK');
+        res.status(500).render('500');
+    }
 });
 
 // API - Read Data Dosen

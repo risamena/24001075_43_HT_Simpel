@@ -1,11 +1,340 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-</head>
-<body>
-    <h1>Landing Page</h1>
-</body>
+  <head>
+    <title>SIMPEL</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="/css/w3.css" />
+    <link rel="stylesheet" href="/css/w3-theme-black.css"/>
+    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+  </head>
+  <body id="myPage">
+    <!-- Sidebar on click -->
+    <nav
+      class="w3-sidebar w3-bar-block w3-white w3-card w3-animate-left w3-xxlarge"
+      style="display: none; z-index: 2"
+      id="mySidebar"
+    >
+      <a
+        href="javascript:void(0)"
+        onclick="w3_close()"
+        class="w3-bar-item w3-button w3-display-topright w3-text-teal"
+        >Close
+        <i class="fa fa-remove"></i>
+      </a>
+      <a href="#" class="w3-bar-item w3-button">Home</a>
+      <a href="#" class="w3-bar-item w3-button">Data Dosen</a>
+      <a href="#" class="w3-bar-item w3-button">Jurnal</a>
+      <a href="#" class="w3-bar-item w3-button">Buku</a>
+      <a href="#" class="w3-bar-item w3-button">HaKI</a>
+    </nav>
+
+    <!-- Navbar -->
+    <div class="w3-top">
+      <div class="w3-bar w3-theme-d2 w3-left-align">
+        <a
+          class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-hover-white w3-theme-d2"
+          href="javascript:void(0);"
+          onclick="openNav()"
+          ><i class="fa fa-bars"></i
+        ></a>
+        <a href="#" class="w3-bar-item w3-button w3-teal"
+          ><i class="fa fa-home w3-margin-right"></i>SIMPEL</a
+        >
+        <a
+          href="#team"
+          class="w3-bar-item w3-button w3-hide-small w3-hover-white"
+          >Data Dosen</a
+        >
+        <a
+          href="#work"
+          class="w3-bar-item w3-button w3-hide-small w3-hover-white"
+          >Artikel Ilmiah</a
+        >
+        <a
+          href="#pricing"
+          class="w3-bar-item w3-button w3-hide-small w3-hover-white"
+          >Buku</a
+        >
+        <a
+          href="#contact"
+          class="w3-bar-item w3-button w3-hide-small w3-hover-white"
+          >HaKI</a
+        >
+        <div class="w3-dropdown-hover w3-hide-small">
+          <button class="w3-button" title="Notifications">
+            Link Terkait <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="w3-dropdown-content w3-card-4 w3-bar-block">
+            <a href="#" class="w3-bar-item w3-button">GARUDA</a>
+            <a href="#" class="w3-bar-item w3-button">SINTA</a>
+            <a href="#" class="w3-bar-item w3-button">BIMA</a>
+            <a href="#" class="w3-bar-item w3-button">RAMA</a>
+            <a href="#" class="w3-bar-item w3-button">ARJUNA</a>
+            <a href="#" class="w3-bar-item w3-button">PDDIKTI</a>
+          </div>
+        </div>
+        <a
+          href="#"
+          class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-teal"
+          title="Search"
+          ><i class="fa fa-search"></i
+        ></a>
+      </div>
+
+      <!-- Navbar on small screens -->
+      <div
+        id="navDemo"
+        class="w3-bar-block w3-theme-d2 w3-hide w3-hide-large w3-hide-medium"
+      >
+        <a href="#team" class="w3-bar-item w3-button">Data Dosen</a>
+        <a href="#work" class="w3-bar-item w3-button">Artikel Ilmiah</a>
+        <a href="#pricing" class="w3-bar-item w3-button">Buku</a>
+        <a href="#contact" class="w3-bar-item w3-button">HaKI</a>
+      </div>
+    </div>
+
+    <!-- Image Header -->
+    <div class="w3-display-container w3-animate-opacity">
+      <img
+        src="/img/pantai-ora.jpg"
+        alt="boat"
+        style="width: 100%; min-height: 350px; max-height: 600px"
+      />
+      <div class="w3-container w3-display-bottomleft w3-margin-bottom">
+        <button class="w3-button w3-xlarge w3-theme w3-hover-teal">
+          SIMPEL - Sistem Informasi Manajemen Penelitian
+        </button>
+      </div>
+    </div>
+
+    <!-- Team Container -->
+    <div class="w3-container w3-padding-64 w3-center" id="team">
+      <h2>Statistik Lembaga Penelitian</h2>
+
+      <div class="w3-row">
+        <br />
+        <div class="w3-quarter">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30%" fill="currentColor" class="bi bi-people-fill" viewBox="0 0 16 16">
+  <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5.784 6A2.24 2.24 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.3 6.3 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5"/>
+</svg>
+          <h3>Jumlah Dosen Terdaftar</h3>
+          <p><b><%= countDataDosen %></b></p>
+        </div>
+
+        <div class="w3-quarter">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30%" fill="currentColor" class="bi bi-journal-text" viewBox="0 0 16 16">
+                <path d="M5 10.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5m0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5"/>
+                <path d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2"/>
+                <path d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1z"/>
+              </svg>
+          <h3>Portal Jurnal</h3>
+          <p>4</p>
+        </div>
+
+        <div class="w3-quarter">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30%" fill="currentColor" class="bi bi-book-fill" viewBox="0 0 16 16">
+                <path d="M8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783"/>
+              </svg>
+          <h3>Artikel</h3>
+          <p>4</p>
+        </div>
+
+        <div class="w3-quarter">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30%" fill="currentColor" class="bi bi-book-half" viewBox="0 0 16 16">
+                <path d="M8.5 2.687c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783"/>
+              </svg>
+          <h3>Buku</h3>
+          <p>4</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Work Row -->
+    <div class="w3-row-padding w3-padding-64 w3-theme-l1" id="work">
+      <div class="w3-quarter">
+        <h2>SIMPEL</h2>
+        <p>
+          SIMPEL merupakan sistem informasi manajemen penelitian internal Dosen pada Perguruan Tinggi. <br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita minima repellat, consequuntur dignissimos voluptate culpa iusto aperiam pariatur asperiores aliquid sed adipisci fugit mollitia harum aliquam alias accusamus, quisquam velit.
+        </p>
+      </div>
+
+      <div class="w3-quarter">
+        <div class="w3-card w3-white">
+          <img src="/img/snow.jpg" alt="Snow" style="width: 100%" />
+          <div class="w3-container">
+            <h3>Lembaga Penelitian</h3>
+            <p>Transparan</p>
+            <p>Akuntabel</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="w3-quarter">
+        <div class="w3-card w3-white">
+          <img src="/img/lights.jpg" alt="Lights" style="width: 100%" />
+          <div class="w3-container">
+            <h3>Penelitian Dasar</h3>
+            <p>Blablabla</p>
+            <p>Blablabla</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="w3-quarter">
+        <div class="w3-card w3-white">
+          <img
+            src="/img/mountains.jpg"
+            alt="Mountains"
+            style="width: 100%"
+          />
+          <div class="w3-container">
+            <h3>Penelitian Terapan</h3>
+            <p>Blablabla</p>
+            <p>Blablabla</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Container -->
+    <div class="w3-container" style="position: relative">
+      <a
+        onclick="w3_open()"
+        class="w3-button w3-xlarge w3-circle w3-teal"
+        style="position: absolute; top: -28px; right: 24px"
+        >+</a
+      >
+    </div>
+
+    <!-- Contact Container -->
+    <div class="w3-container w3-padding-64 w3-theme-l5" id="contact">
+      <div class="w3-row">
+        <div class="w3-col m5">
+          <div class="w3-padding-16">
+            <span class="w3-xlarge w3-border-teal w3-bottombar"
+              >Hubungi Kami</span
+            >
+          </div>
+          <h3>Alamat</h3>
+          <p>Tetap MANYALA, Abangku!!!</p>
+          <p>
+            <i class="fa fa-map-marker w3-text-teal w3-xlarge"></i>  Ambon, ID
+          </p>
+          <p>
+            <i class="fa fa-phone w3-text-teal w3-xlarge"></i>  +62 911 214525
+          </p>
+          <p>
+            <i class="fa fa-envelope-o w3-text-teal w3-xlarge"></i
+            >  lemlit@gmail.com
+          </p>
+        </div>
+        <div class="w3-col m7">
+          <form
+            class="w3-container w3-card-4 w3-padding-16 w3-white"
+            action="/action_page.php"
+            target="_blank"
+          >
+            <div class="w3-section">
+              <label>Nama</label>
+              <input class="w3-input" type="text" name="Nama" required />
+            </div>
+            <div class="w3-section">
+              <label>Email</label>
+              <input class="w3-input" type="text" name="Email" required />
+            </div>
+            <div class="w3-section">
+              <label>Pesan</label>
+              <input class="w3-input" type="text" name="Pesan" required />
+            </div>
+            <button type="submit" class="w3-button w3-right w3-theme">
+                <i class="fa fa-paper-plane" aria-hidden="true"></i> Kirim
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Image of location/map -->
+    <img
+      src="/img/map.jpg"
+      class="w3-image w3-greyscale-min"
+      style="width: 100%"
+    />
+
+    <!-- Footer -->
+    <footer class="w3-container w3-padding-32 w3-theme-d1 w3-center">
+      <h4>Ikuti Kami</h4>
+      <a
+        class="w3-button w3-large w3-teal"
+        href="javascript:void(0)"
+        title="Facebook"
+        ><i class="fa fa-facebook"></i
+      ></a>
+      <a
+        class="w3-button w3-large w3-teal"
+        href="javascript:void(0)"
+        title="Twitter"
+        ><i class="fa fa-twitter"></i
+      ></a>
+      <a
+        class="w3-button w3-large w3-teal"
+        href="javascript:void(0)"
+        title="Google +"
+        ><i class="fa fa-google-plus"></i
+      ></a>
+      <a
+        class="w3-button w3-large w3-teal"
+        href="javascript:void(0)"
+        title="Google +"
+        ><i class="fa fa-instagram"></i
+      ></a>
+      <a
+        class="w3-button w3-large w3-teal w3-hide-small"
+        href="javascript:void(0)"
+        title="Linkedin"
+        ><i class="fa fa-linkedin"></i
+      ></a>
+      <p>
+        Developed by <a href="https://github.com/risamena"><i class="icon-arrow-right"></i></a>
+      </p>
+
+      <div
+        style="position: relative; bottom: 100px; z-index: 1"
+        class="w3-tooltip w3-right"
+      >
+        <span class="w3-text w3-padding w3-teal w3-hide-small">Go To Top</span>
+        <a class="w3-button w3-theme" href="#myPage"
+          ><span class="w3-xlarge">
+            <i class="fa fa-chevron-circle-up"></i></span
+        ></a>
+      </div>
+    </footer>
+
+    <script>
+      // Script for side navigation
+      function w3_open() {
+        var x = document.getElementById("mySidebar");
+        x.style.width = "300px";
+        x.style.paddingTop = "10%";
+        x.style.display = "block";
+      }
+
+      // Close side navigation
+      function w3_close() {
+        document.getElementById("mySidebar").style.display = "none";
+      }
+
+      // Used to toggle the menu on smaller screens when clicking on the menu button
+      function openNav() {
+        var x = document.getElementById("navDemo");
+        if (x.className.indexOf("w3-show") == -1) {
+          x.className += " w3-show";
+        } else {
+          x.className = x.className.replace(" w3-show", "");
+        }
+      }
+    </script>
+  </body>
 </html>
