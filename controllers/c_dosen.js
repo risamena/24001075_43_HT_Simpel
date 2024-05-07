@@ -1,16 +1,18 @@
-const m_dosen = require('../models/m_dosen');
+const modelDosen = require('../models/m_dosen');
 const m_trx = require('../models/m_transaction');
+const client = require('../config/database');
 
 async function getCount(req, res) {
     try {
         m_trx.begin;
-        const rawData = m_dosen.getAllData;
-        const countDataDosen = rawData.rowCount;
-        m_trx.commit;
+        // const rawData = modelDosen.getAllData;
+        const countDataDosen = await modelDosen.getAllData;
+        console.log(countDataDosen);
+        // m_trx.commit;
         res.render('home/index', {countDataDosen});
     } catch (error) {
         console.log(error);
-        m_trx.rollback;
+        // m_trx.rollback;
         res.status(500).render('500');
     } 
 }

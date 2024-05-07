@@ -13,15 +13,10 @@ app.use(dosen);
 
 // morgan
 const morgan = require('morgan');
+const c_morgan = require('./controllers/c_morgan');
 app.use(morgan('dev'));
-// 500 handler
-app.use((err, req, res, next)=>{
-    res.status(500).render('500')
-});
-// 404 handler
-app.use((req, res, next) => {
-    res.status(404).render('404');
-});
+app.use(c_morgan.ise);
+app.use(c_morgan.pnf);
 
 // server
 app.listen(PORT, () => { console.log(`Server is running at Port http://localhost:${PORT}`);});

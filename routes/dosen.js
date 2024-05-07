@@ -9,24 +9,24 @@ router.use(function timelog(req, res, next){
     next();
 });
 // controller
-const c_dosen = require('../controllers/c_dosen');
+const controllerDosen = require('../controllers/c_dosen');
 
 
 // Landing Page
-// router.get('/', c_dosen.getCount);
-router.get('/', async(req, res)=>{
-    try {
-        await client.query('BEGIN');
-        const rawData = await client.query(`SELECT * FROM dosen`);
-        const countDataDosen = rawData.rowCount;
-        await client.query('COMMIT');
-        res.render('home/index', {countDataDosen});
-    } catch (error) {
-        console.log(error);
-        await client.query('ROLLBACK');
-        res.status(500).render('500');
-    }
-});
+router.get('/', controllerDosen.getCount);
+// router.get('/', async(req, res)=>{
+//     try {
+//         await client.query('BEGIN');
+//         const rawData = await client.query(`SELECT * FROM dosen`);
+//         const countDataDosen = rawData.rowCount;
+//         await client.query('COMMIT');
+//         res.render('home/index', {countDataDosen});
+//     } catch (error) {
+//         console.log(error);
+//         await client.query('ROLLBACK');
+//         res.status(500).render('500');
+//     } 
+// });
 
 // API - Read Data Dosen
 // router.get('/data-dosen', c_dosen.getAllData);
