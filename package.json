@@ -4,7 +4,7 @@
   "description": "Project GOLD Binar",
   "main": "index.js",
   "scripts": {
-    "start": "dotenv-load nodemon"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
