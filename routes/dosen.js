@@ -8,9 +8,12 @@ router.use(function timelog(req, res, next){
     console.log('Time: ', Date.now());
     next();
 });
+// controller
+const c_dosen = require('../controllers/c_dosen');
+
 
 // Landing Page
-// router.get('/', DosenController.addNewDosen);
+// router.get('/', c_dosen.getCount);
 router.get('/', async(req, res)=>{
     try {
         await client.query('BEGIN');
@@ -26,6 +29,7 @@ router.get('/', async(req, res)=>{
 });
 
 // API - Read Data Dosen
+// router.get('/data-dosen', c_dosen.getAllData);
 router.get('/data-dosen', async (req, res)=>{
     try {
         await client.query('BEGIN');
