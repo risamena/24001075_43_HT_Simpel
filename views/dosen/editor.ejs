@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title><%- updateId ? 'Update' : 'Tambah'%> Data Dosen</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico" />
+    <link rel="stylesheet" href="/css/w3.css" />
+    <link rel="stylesheet" href="/css/w3-theme-black.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body id="myPage">
+    <%- include('../home/header');%>
+    <div class="w3-container w3-padding-64 w3-theme-l5">
+        <h2 class="w3-center"> <%- updateId ? 'Update' : 'Tambah'%> Data Dosen</h2><br>
+        <div class="w3-center">
+          <form action="<%- updateId ? `/data-dosen/update/${updateId}` : '/data-dosen/create'%> " method="post">
+            <% if (!updateId) { %>
+              <label for="dosen_id_txt">NIDN :</label><br>
+              <input type="text" name="dosen_id" id="dosen_id_txt" placeholder="Masukan NIDN" ><br>
+            <% } else { %>
+              <label for="dosen_id_txt">NIDN :</label><br>
+              <p><b><%= updateId %></b></p>
+              <!-- <input type="text" name="dosen_id" id="dosen_id_txt" disabled value="<%= updateId %>" ><br> -->
+            <% } %>
+            <label for="nama_lengkap_txt">Nama Lengkap :</label><br>
+            <input type="text" name="nama_lengkap" id="nama_lengkap_txt" placeholder="Masukan Nama Lengkap" value="<%- !data ? "" : data.nama_lengkap %>"><br>
+            <label for="fakultas_txt">Fakultas :</label><br>
+            <input type="text" name="fakultas" id="fakultas_txt" placeholder="Masukan Nama Fakultas" value="<%- !data ? "" : data.fakultas %>"><br>
+            <label for="prodi_txt">Program Studi :</label><br>
+            <input type="text" name="prodi" id="prodi_txt" placeholder="Masukan Nama Program Studi" value="<%- !data ? "" : data.prodi %>"><br>
+            <label for="alamat">Alamat :</label><br>
+            <input type="text" name="alamat" id="alamat" placeholder="Masukan Alamat Dosen" value="<%- !data ? "" : data.alamat %>"><br><br>
+            <a href="http://localhost:4646/data-dosen"><button type="button" class="w3-button w3-teal w3-round w3-hover-indigo"><i class="fa fa-arrow-left" aria-hidden="true"></i> Kembali</button></a>
+            <button type="submit" class="w3-button w3-green w3-round w3-hover-khaki">Simpan</button>
+            <!-- <button onclick="validateForm()" class="w3-btn w3-round-xxlarge w3-theme">Simpan</button> -->
+        </form>
+        </div>
+    </div>
+    <%- include('../home/footer');%>
+  </body>
+</html>

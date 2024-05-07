@@ -16,27 +16,29 @@
     <%- include('../home/header');%>
     <div class="w3-container w3-padding-64 w3-theme-l5">
         <h2 class="w3-center">Daftar Data Dosen</h2><br>
-        <table class="w3-table-all w3-card-4">
+        <a href="http://localhost:4646/data-dosen/editor"><button type="button" class="w3-button w3-teal w3-round w3-hover-indigo">Tambah Data</button></a><br>
+        <br>
+        <table class="w3-table-all w3-card-4 w3-hoverable">
             <tr>
-              <th>First Name</th>
-              <th>Last Name</th>
-              <th>Points</th>
+              <th>NIDN</th>
+              <th>Nama Lengkap</th>
+              <th>Fakultas</th>
+              <th>Prodi</th>
+              <th>Alamat</th>
+              <th>Aksi</th>
             </tr>
-            <tr>
-              <td>Jill</td>
-              <td>Smith</td>
-              <td>50</td>
-            </tr>
-            <tr>
-              <td>Eve</td>
-              <td>Jackson</td>
-              <td>94</td>
-            </tr>
-            <tr>
-              <td>Adam</td>
-              <td>Johnson</td>
-              <td>67</td>
-            </tr>
+            <% data.forEach(function (value){ %>
+              <tr>
+                <td><%= value.dosen_id %></td>
+                <td><%= value.nama_lengkap %></td>
+                <td><%= value.fakultas %></td>
+                <td><%= value.prodi %></td>
+                <td><%= value.alamat %></td>
+                <td><a href="http://localhost:4646/data-dosen/detail/<%= value.dosen_id %>"><button type="button" class="w3-button w3-teal w3-round w3-hover-indigo">Detail</button></a> | 
+                <a href="http://localhost:4646/data-dosen/delete/<%= value.dosen_id %>"><button type="button" class="w3-button w3-red w3-round w3-hover-khaki">Hapus</button></a>
+                </td>
+              </tr>
+            <% }) %>
           </table>
     </div>
     <%- include('../home/footer');%>

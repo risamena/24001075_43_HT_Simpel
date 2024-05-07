@@ -1,6 +1,8 @@
 const express = require('express');
+const methodOverride = require('method-override');
 const router = express.Router();
 const client = require('../config/database');
+express().use(methodOverride('_method'));
 
 router.use(function timelog(req, res, next){
     console.log('Time: ', Date.now());
@@ -31,8 +33,7 @@ router.get('/data-dosen', async (req, res)=>{
         const data = rawData.rows;
         const count = rawData.rowCount;
         await client.query('COMMIT');
-        // res.status(200).json({data, count}); //ganti ke VIEW
-        res.status(200).render('dosen/index', {data, count});
+        res.status(200).render('dosen/index', {data});
     } catch (error) {
         console.log(error);
         await client.query('ROLLBACK');
@@ -48,7 +49,7 @@ router.get('/data-dosen/detail/:dosen_id', async (req, res)=>{
             SELECT * FROM dosen WHERE dosen_id = $1`, [dosen_id]);
         const data = rawData.rows[0];
         await client.query('COMMIT');
-        res.status(200).json({data}); //ganti ke VIEW
+        res.status(200).render('dosen/detail', {data});
     } catch (error) {
         console.log(error);
         await client.query('ROLLBACK');
@@ -56,9 +57,26 @@ router.get('/data-dosen/detail/:dosen_id', async (req, res)=>{
     }
 });
 
+// API - Editor - Create
+router.get('/data-dosen/editor', async (req, res) => {
+    const updateId = req.query.update_id;
+    try {
+        const dosen_id = updateId;
+        await client.query('BEGIN');
+        const rawData = await client.query(`
+            SELECT * FROM dosen WHERE dosen_id = $1`, [dosen_id]);
+        const data = rawData.rows[0];
+        await client.query('COMMIT');
+        res.status(200).render('dosen/editor', {updateId, data});
+    } catch (error) {
+        console.log(error);
+        await client.query('ROLLBACK');
+        res.status(500).render('500');
+    }
+});
 
-// API - Create - [Pindahkan sesuai MVC]
-router.post('/data-dosen', async (req, res)=>{
+// API - Create
+router.post('/data-dosen/create', async (req, res)=>{
     try {
         const payload = req.body;
         const dosen_id = payload.dosen_id;
@@ -74,7 +92,7 @@ router.post('/data-dosen', async (req, res)=>{
                 dosen_id, nama_lengkap, fakultas, prodi, alamat
             ]);
         await client.query('COMMIT');
-        res.status(200).send('success')
+        res.redirect('/data-dosen');
     } catch (error) {
         console.log(error);
         await client.query('ROLLBACK');
@@ -83,11 +101,10 @@ router.post('/data-dosen', async (req, res)=>{
 });
 
 // API - Update
-router.put('/data-dosen/update/:dosen_id', async (req, res)=>{
+router.post('/data-dosen/update/:dosen_id', async (req, res)=>{
     try {
         const payload = req.body;
         const dosen_id = req.params.dosen_id;
-        // const dosen_id = payload.dosen_id;
         await client.query('BEGIN');
         const rawOldData = await client.query(`
             SELECT * FROM dosen WHERE dosen_id = $1`,[dosen_id]);
@@ -98,22 +115,12 @@ router.put('/data-dosen/update/:dosen_id', async (req, res)=>{
         const prodi = payload.prodi || oldData.prodi;
         const alamat = payload.alamat || oldData.alamat;
 
-        // let nama_lengkap = oldData.nama_lengkap;
-        // let fakultas = oldData.fakultas;
-        // let prodi = oldData.prodi;
-        // let alamat = oldData.alamat;
-
-        // nama_lengkap = payload.nama_lengkap;
-        // fakultas = payload.fakultas;
-        // prodi = payload.prodi;
-        // alamat = payload.alamat;
-
         const newRawData = await client.query(`
             UPDATE dosen SET nama_lengkap = $1, fakultas = $2, prodi = $3, alamat = $4
             WHERE dosen_id = $5 RETURNING *`, [nama_lengkap, fakultas, prodi, alamat, dosen_id]);
         const newData = newRawData.rows[0];
         await client.query('COMMIT');
-        res.status(200).json({data: newData});
+        res.redirect('/data-dosen')
     } catch (error) {
         console.log(error);
         await client.query('ROLLBACK');
@@ -121,14 +128,14 @@ router.put('/data-dosen/update/:dosen_id', async (req, res)=>{
     }
 });
 
-// delete
-router.delete('/data-dosen/delete/:dosen_id', async (req, res) => {
+// API - Delete
+router.get('/data-dosen/delete/:dosen_id', async (req, res) => {
     await client.query('BEGIN');
     try {
         const dosen_id = req.params.dosen_id;
         await client.query(`DELETE FROM dosen WHERE dosen_id = $1`, [dosen_id]);
         await client.query('COMMIT');
-        res.status(200).json({dosen_id});
+        res.redirect('/data-dosen');
     } catch (error) {
         console.log(error);
         await client.query('ROLLBACK');
