@@ -1,0 +1,79 @@
+<header>
+  <!-- Sidebar on click -->
+  <nav
+    class="w3-sidebar w3-bar-block w3-white w3-card w3-animate-left w3-xxlarge"
+    style="display: none; z-index: 2"
+    id="mySidebar"
+  >
+    <a
+      href="javascript:void(0)"
+      onclick="w3_close()"
+      class="w3-bar-item w3-button w3-display-topright w3-text-teal"
+      >Close
+      <i class="fa fa-remove"></i>
+    </a>
+    <a href="http://localhost:4646" class="w3-bar-item w3-button">Home</a>
+    <a href="http://localhost:4646/data-dosen" class="w3-bar-item w3-button">Data Dosen</a>
+    <a href="http://localhost:4646/artikel" class="w3-bar-item w3-button">Jurnal</a>
+    <a href="http://localhost:4646/buku" class="w3-bar-item w3-button">Buku</a>
+    <a href="http://localhost:4646/haki" class="w3-bar-item w3-button">HaKI</a>
+  </nav>
+
+  <!-- Navbar -->
+  <div class="w3-top">
+    <div class="w3-bar w3-theme-d2 w3-left-align">
+      <a
+        class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-hover-white w3-theme-d2"
+        href="javascript:void(0);"
+        onclick="openNav()"
+        ><i class="fa fa-bars"></i
+      ></a>
+      <a href="http://localhost:4646" class="w3-bar-item w3-button w3-teal">
+        <img src="/img/favicon.ico" alt="logo" style="width: 15%;"> SIMPEL
+        </a
+      >
+      <a href="http://localhost:4646/data-dosen" class="w3-bar-item w3-button w3-hide-small w3-hover-white"
+        >Data Dosen</a
+      >
+      <a href="http://localhost:4646/artikel" class="w3-bar-item w3-button w3-hide-small w3-hover-white"
+        >Artikel Ilmiah</a
+      >
+      <a href="http://localhost:4646/buku" class="w3-bar-item w3-button w3-hide-small w3-hover-white"
+        >Buku</a
+      >
+      <a href="http://localhost:4646/haki" class="w3-bar-item w3-button w3-hide-small w3-hover-white"
+        >HaKI</a
+      >
+      <div class="w3-dropdown-hover w3-hide-small">
+        <button class="w3-button" title="Notifications">
+          Link Terkait <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="w3-dropdown-content w3-card-4 w3-bar-block">
+          <a href="http://garuda.kemdikbud.go.id" class="w3-bar-item w3-button">GARUDA</a>
+          <a href="http://sinta.kemdikbud.go.id" class="w3-bar-item w3-button">SINTA</a>
+          <a href="http://bima.kemdikbud.go.id" class="w3-bar-item w3-button">BIMA</a>
+          <a href="http://rama.kemdikbud.go.id" class="w3-bar-item w3-button">RAMA</a>
+          <a href="http://arjuna.kemdikbud.go.id" class="w3-bar-item w3-button">ARJUNA</a>
+          <a href="http://pddikti.kemdikbud.go.id" class="w3-bar-item w3-button">PDDIKTI</a>
+        </div>
+      </div>
+      <a
+        href="#"
+        class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-teal"
+        title="Search"
+        ><i class="fa fa-search"></i
+      ></a>
+    </div>
+
+    <!-- Navbar on small screens -->
+    <div
+      id="navDemo"
+      class="w3-bar-block w3-theme-d2 w3-hide w3-hide-large w3-hide-medium"
+    >
+      <a href="http://localhost:4646/data-dosen" class="w3-bar-item w3-button">Data Dosen</a>
+      <a href="http://localhost:4646/artikel" class="w3-bar-item w3-button">Artikel Ilmiah</a>
+      <a href="http://localhost:4646/buku" class="w3-bar-item w3-button">Buku</a>
+      <a href="http://localhost:4646/haki" class="w3-bar-item w3-button">HaKI</a>
+    </div>
+  </div>
+</header>

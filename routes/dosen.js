@@ -31,7 +31,8 @@ router.get('/data-dosen', async (req, res)=>{
         const data = rawData.rows;
         const count = rawData.rowCount;
         await client.query('COMMIT');
-        res.status(200).json({data, count}); //ganti ke VIEW
+        // res.status(200).json({data, count}); //ganti ke VIEW
+        res.status(200).render('dosen/index', {data, count});
     } catch (error) {
         console.log(error);
         await client.query('ROLLBACK');
@@ -81,8 +82,8 @@ router.post('/data-dosen', async (req, res)=>{
     }   
 });
 
-// API - Update - Masih Error(Page Not Found)
-router.put('data-dosen/update/:dosen_id', async (req, res)=>{
+// API - Update
+router.put('/data-dosen/update/:dosen_id', async (req, res)=>{
     try {
         const payload = req.body;
         const dosen_id = req.params.dosen_id;
@@ -91,21 +92,25 @@ router.put('data-dosen/update/:dosen_id', async (req, res)=>{
         const rawOldData = await client.query(`
             SELECT * FROM dosen WHERE dosen_id = $1`,[dosen_id]);
         const oldData = rawOldData.rows[0];
-        let nama_lengkap = oldData.nama_lengkap;
-        let fakultas = oldData.fakultas;
-        let prodi = oldData.prodi;
-        let alamat = oldData.alamat;
 
-        nama_lengkap = payload.nama_lengkap;
-        fakultas = payload.fakultas;
-        prodi = payload.prodi;
-        alamat = payload.alamat;
+        const nama_lengkap = payload.nama_lengkap || oldData.nama_lengkap;
+        const fakultas = payload.fakultas || oldData.fakultas;
+        const prodi = payload.prodi || oldData.prodi;
+        const alamat = payload.alamat || oldData.alamat;
+
+        // let nama_lengkap = oldData.nama_lengkap;
+        // let fakultas = oldData.fakultas;
+        // let prodi = oldData.prodi;
+        // let alamat = oldData.alamat;
+
+        // nama_lengkap = payload.nama_lengkap;
+        // fakultas = payload.fakultas;
+        // prodi = payload.prodi;
+        // alamat = payload.alamat;
 
         const newRawData = await client.query(`
-            UPDATE dosen set nama_lengkap = $1, fakultas = $2, prodi = $3, alamat = $4
-            WHERE dosen_id = $5 RETURNING *`, [
-                nama_lengkap, fakultas, prodi, alamat, dosen_id
-            ]);
+            UPDATE dosen SET nama_lengkap = $1, fakultas = $2, prodi = $3, alamat = $4
+            WHERE dosen_id = $5 RETURNING *`, [nama_lengkap, fakultas, prodi, alamat, dosen_id]);
         const newData = newRawData.rows[0];
         await client.query('COMMIT');
         res.status(200).json({data: newData});
