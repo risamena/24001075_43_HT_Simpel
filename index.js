@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 4646;
 // app.locals.baseURL = `http://localhost:${PORT}`;
-app.locals.baseURL = `http://24001075-43-ht-simpel.ap-1.evennode.com/`;
+app.locals.baseURL = `http://24001075-43-ht-simpel.ap-1.evennode.com`;
 
 app.use(express.json());
 app.use(express.urlencoded());
