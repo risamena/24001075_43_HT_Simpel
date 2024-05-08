@@ -34,7 +34,7 @@ async function getDataById(req, res){
         const dosen_id = req.params.dosen_id;
         m_trx.begin
         const rawData = modelDosen.getDataByID();
-        const data = rawData.rows[0];
+        const data = (await rawData).rows[0];
         m_trx.commit
         res.status(200).render('dosen/detail', {data});
     } catch (error) {
