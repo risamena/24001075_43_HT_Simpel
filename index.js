@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 4646;
+app.locals.baseURL = `http://localhost:${PORT}`;
 
 app.use(express.json());
 app.use(express.urlencoded());

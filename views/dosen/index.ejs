@@ -16,7 +16,7 @@
     <%- include('../home/header');%>
     <div class="w3-container w3-padding-64 w3-theme-l5">
         <h2 class="w3-center">Daftar Data Dosen</h2><br>
-        <a href="http://localhost:4646/data-dosen/editor"><button type="button" class="w3-button w3-teal w3-round w3-hover-indigo">Tambah Data</button></a><br>
+        <a href="<%=baseURL%>/data-dosen/editor"><button type="button" class="w3-button w3-teal w3-round w3-hover-indigo">Tambah Data</button></a><br>
         <br>
         <table class="w3-table-all w3-card-4 w3-hoverable">
             <tr>
@@ -34,8 +34,8 @@
                 <td><%= value.fakultas %></td>
                 <td><%= value.prodi %></td>
                 <td><%= value.alamat %></td>
-                <td><a href="http://localhost:4646/data-dosen/detail/<%= value.dosen_id %>"><button type="button" class="w3-button w3-teal w3-round w3-hover-indigo">Detail</button></a> | 
-                <a href="http://localhost:4646/data-dosen/delete/<%= value.dosen_id %>"><button type="button" class="w3-button w3-red w3-round w3-hover-khaki">Hapus</button></a>
+                <td><a href="<%=baseURL%>/data-dosen/detail/<%= value.dosen_id %>"><button type="button" class="w3-button w3-teal w3-round w3-hover-indigo">Detail</button></a> | 
+                <a href="<%=baseURL%>/data-dosen/delete/<%= value.dosen_id %>"><button type="button" class="w3-button w3-red w3-round w3-hover-khaki">Hapus</button></a>
                 </td>
               </tr>
             <% }) %>
