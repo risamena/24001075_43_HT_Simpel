@@ -34,7 +34,7 @@
             <input type="text" name="prodi" id="prodi_txt" placeholder="Masukan Nama Program Studi" value="<%- !data ? "" : data.prodi %>"><br>
             <label for="alamat">Alamat :</label><br>
             <input type="text" name="alamat" id="alamat" placeholder="Masukan Alamat Dosen" value="<%- !data ? "" : data.alamat %>"><br><br>
-            <a href="<%- !data ? "http://24001075-43-ht-simpel.ap-1.evennode.com/data-dosen" : `http://24001075-43-ht-simpel.ap-1.evennode.com/data-dosen/detail/${updateId}` %>"><button type="button" class="w3-button w3-teal w3-round w3-hover-indigo"><i class="fa fa-arrow-left" aria-hidden="true"></i> Kembali</button></a>
+            <a href="<%- !data ? "http://localhost:4646/data-dosen" : `http://localhost:4646/data-dosen/detail/${updateId}` %>"><button type="button" class="w3-button w3-teal w3-round w3-hover-indigo"><i class="fa fa-arrow-left" aria-hidden="true"></i> Kembali</button></a>
             <button type="submit" class="w3-button w3-green w3-round w3-hover-khaki">Simpan</button>
             <!-- <button onclick="validateForm()" class="w3-btn w3-round-xxlarge w3-theme">Simpan</button> -->
         </form>
