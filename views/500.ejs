@@ -4,14 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Internal Server Error</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico" />
+    <link rel="stylesheet" href="/css/w3.css" />
+    <link rel="stylesheet" href="/css/w3-theme-black.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
     <link rel="stylesheet" href="/err/404.css">
 </head>
-<body>
-    <div style="text-align: center;">
-        <img src="/err/500.svg" alt="404" style="width: 40%;"><br><br>
-        <div class="buttons-container">
-            <a href="/"><button class="button-arounder">Kembali</button></a>
+<body id="myPage">
+    <%- include('./home/header');%>
+    <div class="w3-container">
+        <div style="text-align: center;">
+            <img src="/err/500.svg" alt="404" style="width: 40%;"><br><br>
+            <div class="buttons-container">
+                <a href="/"><button class="button-arounder">Kembali</button></a>
+            </div>
         </div>
     </div>
+    <%- include('./home/footer');%>
 </body>
 </html>

@@ -9,42 +9,15 @@ router.use(function timelog(req, res, next){
     next();
 });
 // controller
-const c_dosen = require('../controllers/c_dosen');
+const controllerDosen = require('../controllers/c_dosen');
 
 
-// Landing Page
-// router.get('/', c_dosen.getCount);
-router.get('/', async(req, res)=>{
-    try {
-        await client.query('BEGIN');
-        const rawData = await client.query(`SELECT * FROM dosen`);
-        const countDataDosen = rawData.rowCount;
-        await client.query('COMMIT');
-        res.render('home/index', {countDataDosen});
-    } catch (error) {
-        console.log(error);
-        await client.query('ROLLBACK');
-        res.status(500).render('500');
-    }
-});
+// Home
+router.get('/', controllerDosen.getCount);
 
 // API - Read Data Dosen
-// router.get('/data-dosen', c_dosen.getAllData);
-router.get('/data-dosen', async (req, res)=>{
-    try {
-        await client.query('BEGIN');
-        const rawData = await client.query(`SELECT * FROM dosen`);
-        const data = rawData.rows;
-        const count = rawData.rowCount;
-        await client.query('COMMIT');
-        res.status(200).render('dosen/index', {data});
-    } catch (error) {
-        console.log(error);
-        await client.query('ROLLBACK');
-        res.status(500).render('500');
-    }
-});
-
+router.get('/data-dosen', controllerDosen.getAllData);
+// API - Read Data by ID
 router.get('/data-dosen/detail/:dosen_id', async (req, res)=>{
     try {
         const dosen_id = req.params.dosen_id;
