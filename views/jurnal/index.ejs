@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Data Artikel</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico" />
+    <link rel="stylesheet" href="/css/w3.css" />
+    <link rel="stylesheet" href="/css/w3-theme-black.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+</head>
+<body id="myPage">
+    <%- include('../home/header');%>
+    <div class="w3-container w3-padding-64 w3-theme-l5">
+        <h2 class="w3-center">Daftar Data Artikel Ilmiah</h2><br>
+        <a href="<%=baseURL%>/artikel/editor"><button type="button" class="w3-button w3-teal w3-round w3-hover-indigo">Tambah Data</button></a><br>
+        <br>
+        <table class="w3-table-all w3-card-4 w3-hoverable">
+            <tr>
+              <th>ID JURNAL</th>
+              <th>Judul Artikel</th>
+              <th>Publisher</th>
+              <th>Nama Jurnal</th>
+              <th>ISSN</th>
+              <th>Tahun</th>
+              <th>Aksi</th>
+            </tr>
+            <% data.forEach(function (value){ %>
+              <tr>
+                <td><%= value.jurnal_id %></td>
+                <td><%= value.judul_artikel %></td>
+                <td><%= value.publisher %></td>
+                <td><%= value.nama_jurnal %></td>
+                <td><%= value.issn %></td>
+                <td><%= value.tahun %></td>
+                <td><a href="<%=baseURL%>/artikel/detail/<%= value.jurnal_id %>"><button type="button" class="w3-button w3-teal w3-round w3-hover-indigo">Detail</button></a> | 
+                <a href="<%=baseURL%>/artikel/delete/<%= value.jurnal_id %>"><button type="button" class="w3-button w3-red w3-round w3-hover-khaki">Hapus</button></a>
+                </td>
+              </tr>
+            <% }) %>
+          </table>
+    </div>
+    <%- include('../home/footer');%>
+
+</body>
+</html>
