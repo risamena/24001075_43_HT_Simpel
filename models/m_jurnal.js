@@ -5,4 +5,10 @@ async function getAllData() {
   return result;
 }
 
-module.exports = getAllData;
+async function getDataJurnalById(jurnal_id) {
+  const result = await pool.query(`SELECT * FROM jurnal WHERE jurnal_id=$1`,[jurnal_id]);
+  return result;
+}
+
+
+module.exports = {getAllData,getDataJurnalById};

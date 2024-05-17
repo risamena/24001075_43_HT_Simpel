@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Detail | <%= data.nama_lengkap; %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico" />
+    <link rel="stylesheet" href="/css/w3.css" />
+    <link rel="stylesheet" href="/css/w3-theme-black.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head> 
+  <body id="myPage">
+    <%- include('../home/header');%>
+    <br /><br />
+    <div class="w3-container">
+      <br />
+      <div class="w3-bar">
+        <div class="w3-left">
+            <a href="<%=baseURL%>/data-dosen
+            "><button type="button" class="w3-button w3-teal w3-round w3-hover-indigo"><i class="fa fa-arrow-left" aria-hidden="true"></i> Kembali</button></a><br />
+        </div>
+        <div class="">
+            <a href="/data-artikel/editor?update_id=<%= data.jurnal_id; %>"><button type="button" class="w3-button w3-green w3-round w3-hover-khaki"><i class="fa fa-pencil" aria-hidden="true"></i>Edit Data</button></a>
+        </div>
+        <br />
+      </div>
+      <div class="w3-card w3-center w3-hover-shadow" style="width: 30%">
+        <img src="/img/img_avatar3.png" alt="Person" style="width: 50%" />
+        <div class="w3-container">
+          <h4><b><%= data.nama_lengkap; %></b></h4>
+          <p>NIDN: <%= data.dosen_id; %></p>
+          <p>Fakultas: <%= data.fakultas; %></p>
+          <p>Program Studi: <%= data.prodi; %></p>
+          <p>Alamat: <%= data.alamat; %></p>
+        </div>
+      </div>
+      <br />
+      <p><b>Daftar Artikel Ilmiah, Buku dan HaKI</b></p>
+      <table class="w3-table-all w3-hoverable">
+        <thead>
+          <tr class="w3-teal">
+            <th>No.</th>
+            <th>Judul</th>
+            <th>Publisher</th>
+            <th>Tahun</th>
+            <th>Jenis</th>
+          </tr>
+        </thead>
+        <tr>
+          <td>1</td>
+          <td>
+            Analisis Sentimen Masyarakat Terhadap Pemberlakuan PSBB Pada Masa
+            Covid-19
+          </td>
+          <td>LPPM Universitas Pelita Harapan, Medan</td>
+          <td>2020</td>
+          <td>Artikel Ilmiah</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Pengantar Sistem Operasi Komputer</td>
+          <td>Penerbit Widina, Bandung</td>
+          <td>2023</td>
+          <td>Buku</td>
+        </tr>
+      </table>
+      <p><i>Date Update: 7 Mei 2024 00:00:00 WIT</i></p>
+      <br />
+    </div>
+    <%- include('../home/footer');%>
+  </body>
+</html>
