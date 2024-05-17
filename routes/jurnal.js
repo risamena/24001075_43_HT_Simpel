@@ -5,4 +5,4 @@ const router = express.Router();
 router.get("/artikel", controllers_jurnal.getAllArticle);
 router.get("/artikel/:jurnal_id", controllers_jurnal.getDataJurnalById);
 
-module.exports = router;
+module.exports = router; 
