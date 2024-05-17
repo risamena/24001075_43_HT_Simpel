@@ -31,7 +31,25 @@ async function getDataJurnalById(req, res){
 }
 
 // buat function async tambah data artikel
+async function createDataJurnal(req, res){
+  try {
+      const payload = req.body;
+      const judul_artikel = payload.judul_artikel;
+      const publisher = payload.publisher;
+      const nama_jurnal = payload.nama_jurnal;
+      const issn = payload.issn;
+      const tahun = payload.tahun;
 
+      m_trx.begin;
+      modelJurnal.createDataJurnal(judul_artikel,publisher,nama_jurnal,issn,tahun);
+      m_trx.commit;
+      res.redirect('/data-dosen');
+  } catch (error) {
+      console.log(error);
+      m_trx.rollback;
+      res.status(500).render('500');
+  }
+}
 // judul_artikel
 // varchar
 // publisher
@@ -62,4 +80,4 @@ async function getDataJurnalById(req, res){
 //   }
 // }
 
-module.exports = {getAllArticle,getDataJurnalById};
+module.exports = {getAllArticle,getDataJurnalById,createDataJurnal};
