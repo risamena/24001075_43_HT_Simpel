@@ -13,9 +13,7 @@ app.use(express.static("public"));
 const dosen = require("./routes/dosen");
 app.use(dosen);
 const jurnal = require("./routes/jurnal");
-app.use((req, res, next) => {
-    jurnal(req, res, next);
-  });;
+app.use(jurnal);;
 
 // morgan
 const morgan = require("morgan");
