@@ -17,26 +17,18 @@
     <div class="w3-container w3-padding-64 w3-theme-l5">
         <h2 class="w3-center"> <%- updateId ? 'Update' : 'Tambah'%> Data Artikel</h2><br>
         <div class="w3-center">
-          <form action="<%- updateId ? `/data-artikel/update/${updateId}` : '/data-artikel/create'%> " method="post">
-            <% if (!updateId) { %>
-              <label for="jurnal_artikel_txt">Jurnal Artikel :</label><br>
-              <input type="text" name="jurnal_artikel" id="judul_artikel_txt" placeholder="Masukan Judul Artikel" ><br>
-            <% } else { %>
-              <label for="jurnal_id_txt">Jurnal Id :</label><br>
-              <p><b><%= updateId %></b></p>
-              <!-- <input type="text" name="dosen_id" id="dosen_id_txt" disabled value="<%= updateId %>" ><br> -->
-            <% } %>
+          <form action="/artikel/create" method="post">
             <label for="judul_artikel_txt">Judul Artikel :</label><br>
-            <input type="text" name="nama_lengkap" id="judul_artikel_txt" placeholder="Masukan Judul Artikel" value="<%- !data ? "" : data.judul_artikel %>"><br>
+            <input type="text" name="judul_artikel" id="judul_artikel_txt" placeholder="Masukan Judul Artikel" value=""><br>
             <label for="fakultas_txt">Publisher :</label><br>
-            <input type="text" name="fakultas" id="fakultas_txt" placeholder="Masukan Nama Publisher" value="<%- !data ? "" : data.publisher %>"><br>
+            <input type="text" name="publisher" id="fakultas_txt" placeholder="Masukan Nama Publisher" value=""><br>
             <label for="prodi_txt">Nama Jurnal :</label><br>
-            <input type="text" name="prodi" id="prodi_txt" placeholder="Masukan Nama Jurnal" value="<%- !data ? "" : data.nama_jurnal %>"><br>
+            <input type="text" name="nama_jurnal" id="prodi_txt" placeholder="Masukan Nama Jurnal" value=""><br>
             <label for="alamat">ISSN :</label><br>
-            <input type="text" name="alamat" id="alamat" placeholder="Masukan Alamat Dosen" value="<%- !data ? "" : data.issn %>"><br><br>
+            <input type="text" name="issn" id="alamat" placeholder="Masukan Alamat Dosen" value=""><br><br>
             <label for="alamat">Tahun :</label><br>
-            <input type="text" name="alamat" id="alamat" placeholder="Masukan Alamat Dosen" value="<%- !data ? "" : data.tahun %>"><br><br>
-            <a href="<%- !data ? "http://localhost:4646/data-dosen" : `http://localhost:4646/data-dosen/detail/${updateId}` %>"><button type="button" class="w3-button w3-teal w3-round w3-hover-indigo"><i class="fa fa-arrow-left" aria-hidden="true"></i> Kembali</button></a>
+            <input type="text" name="tahun" id="alamat" placeholder="Masukan Alamat Dosen" value=""><br><br>
+            <a href="http://localhost:4646/artikel/"><button type="button" class="w3-button w3-teal w3-round w3-hover-indigo"><i class="fa fa-arrow-left" aria-hidden="true"></i> Kembali</button></a>
             <button type="submit" class="w3-button w3-green w3-round w3-hover-khaki">Simpan</button>
             <!-- <button onclick="validateForm()" class="w3-btn w3-round-xxlarge w3-theme">Simpan</button> -->
         </form>
