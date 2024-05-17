@@ -1,7 +1,8 @@
 const express = require("express");
-const getAllData = require("../controllers/c_jurnal");
+const controllers_jurnal = require("../controllers/c_jurnal");
 const router = express.Router();
 
-router.get("/artikel", getAllData);
+router.get("/artikel", controllers_jurnal.getAllArticle);
+router.get("/artikel/:jurnal_id", controllers_jurnal.getDataJurnalById);
 
 module.exports = router;
