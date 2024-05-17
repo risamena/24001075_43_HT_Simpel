@@ -10,5 +10,13 @@ async function getDataJurnalById(jurnal_id) {
   return result;
 }
 
+async function createDataJurnal(judul_artikel,publisher,nama_jurnal,issn,tahun) {
+  await pool.query(`
+    INSERT INTO jurnal (judul_artikel,publisher,nama_jurnal,issn,tahun) VALUES ($1,$2,$3,$4,$5)
+    `,[judul_artikel,publisher, nama_jurnal,issn,tahun]
+  );
+}
 
-module.exports = {getAllData,getDataJurnalById};
+
+
+module.exports = {getAllData,getDataJurnalById,createDataJurnal};
