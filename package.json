@@ -17,8 +17,12 @@
   },
   "homepage": "https://github.com/risamena/24001075_43_HT_Simpel#readme",
   "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "crypto-js": "^4.2.0",
     "ejs": "^3.1.10",
     "express": "^4.19.2",
+    "joi": "^17.13.1",
     "method-override": "^3.0.0",
     "morgan": "^1.10.0",
     "pg": "^8.11.5"
